@@ -1,0 +1,17 @@
+@baseUrl=http://localhost:9000
+###
+GET {{baseUrl}}/v1/user/gethome
+###
+GET {{baseUrl}}/v1/user/gethome2
+###
+GET {{baseUrl}}/v1/user/getemail
+
+###
+GET {{baseUrl}}/v1/blockchain/gethome
+###
+GET {{baseUrl}}/v1/blockchain/gethome2
+
+###
+GET {{baseUrl}}/v1/blockchain/getemail
+###
+GET {{baseUrl}}/v1/blockchain/greet/SripalJainFromSingapore

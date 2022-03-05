@@ -1,0 +1,1 @@
+go build && ./golang-gin-web3
