@@ -30,8 +30,7 @@ func (h *CommonClient) GetCounterTotalCount() (*big.Int, error) {
 //GetCounterTotalCount ...
 func (h *CommonClient) CounterIncrement2() (*types.Transaction, error) {
 	fromAddress := crypto.PubkeyToAddress(*h.blkchain.GetPublicKey())
-	privateKey := h.blkchain.GetPrivateKey()
-	chainId := h.blkchain.GetChainId()
+	auth := h.blkchain.GetAuth()
 	nonce, err := h.blkchain.GetEclient().PendingNonceAt(context.Background(), fromAddress)
 	if err != nil {
 		log.Fatal(err)
@@ -39,10 +38,6 @@ func (h *CommonClient) CounterIncrement2() (*types.Transaction, error) {
 	gasPrice, err := h.ethclient.SuggestGasPrice(context.Background())
 	if err != nil {
 		log.Fatal(err)
-		return nil, err
-	}
-	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, chainId)
-	if err != nil {
 		return nil, err
 	}
 	auth.Nonce = big.NewInt(int64(nonce))
