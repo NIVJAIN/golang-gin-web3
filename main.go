@@ -14,6 +14,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/nivjain/golang-gin-web3/api"
+	"github.com/nivjain/golang-gin-web3/blkclient"
+
+	// mid "github.com/nivjain/golang-gin-web3/middlewares/bcconnection"
 	v1 "github.com/nivjain/golang-gin-web3/routers/v1"
 )
 
@@ -34,6 +37,11 @@ func main() {
 	r.Use(gzip.Gzip(gzip.DefaultCompression))
 	r.Use(gin.Recovery())
 
+	blkChainConnection := new(blkclient.Connection)
+	conn2 := blkChainConnection.NewConnection()
+	// conn3 := blkChainConnection.GetConnection()
+	log.Println(conn2.GetConnection())
+
 	client, err := ethclient.Dial(EthClientURL)
 	if err != nil {
 		panic(err)
@@ -52,7 +60,7 @@ func main() {
 
 	//Init
 	userRouter.Routes(r)
-	blockchainRouter.Routes(conn, client, r)
+	blockchainRouter.Routes(conn, client, conn2, r)
 	// HTML rendering ...
 	r.LoadHTMLGlob("./public/html/*")
 	r.Static("/public", "./public")
