@@ -15,6 +15,7 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/nivjain/golang-gin-web3/api"
 	"github.com/nivjain/golang-gin-web3/blkclient"
+	"github.com/nivjain/golang-gin-web3/repositories"
 
 	// mid "github.com/nivjain/golang-gin-web3/middlewares/bcconnection"
 	v1 "github.com/nivjain/golang-gin-web3/routers/v1"
@@ -59,8 +60,11 @@ func main() {
 	var blockchainRouter = new(v1.BlockchainRouter)
 
 	//Init
+	// Repo initialization for db and rabbitmq setup and then Routes setup ...
+	mCommonClientRepo := repositories.SetCommonClient(conn, client, conn2)
 	userRouter.Routes(r)
-	blockchainRouter.Routes(conn, client, conn2, r)
+	blockchainRouter.Routes(mCommonClientRepo, r)
+	// blockchainRouter.Routes(conn, client, conn2, r)
 	// HTML rendering ...
 	r.LoadHTMLGlob("./public/html/*")
 	r.Static("/public", "./public")
