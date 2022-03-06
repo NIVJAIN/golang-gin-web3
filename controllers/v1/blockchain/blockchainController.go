@@ -20,15 +20,8 @@ func (h *BlockchainController) SetUserController(blockchainRepo models.Blockchai
 	}
 }
 
-//RegisterUser ...
+//GetHomePage ...
 func (h *BlockchainController) GetHomePage(c *gin.Context) {
-	// c.JSON(http.StatusOK, gin.H{"success": "BlockchainController reporting hi V!"})
-	// user := h.blockchainRepo.GetHomePage()
-	// if err != nil {
-	// 	log.Error(err.Error())
-	// 	c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-	// 	return
-	// }
 	c.JSON(http.StatusOK, gin.H{"success": h.blockchainRepo.GetHomePage()})
 }
 
