@@ -1,3 +1,16 @@
+### Smart Contract deployment via truffle
+```
+ganache-cli -p 7545 -m "lemon example with key phrase stereo"
+truffle compile --all
+truffle migrate --network ganache
+cd middlewares/blockchain
+check metadata.abi file exists.
+Generate a wrapper file in go with metadata.abi file using below command
+abigen --abi=./middlewares/blockchain/ganache/metadata.abi --pkg=api --out=./api/ERC20Coin2.go
+.env
+
+```
+
 
 ###  SOLC ABIGEN GO
 ```
@@ -22,5 +35,5 @@ abigen --abi=./build/myAbi.abi --pkg=myabi --out=myabi.go
 ## ABIGEN
 ```
 ../truffle-upgradable-proxypatterns/node_modules/solc/solcjs --optimize --bin ./contracts/ERC20Coin.sol -o build
-abigen --abi=./middlewares/blockchain/ganache/metadata.abi --pkg=api --out=./api/ERC20Coin2.go
+abigen --abi=./middlewares/blockchain/ganache/metadata.abi --pkg=api --out=./api/ERC20Coin.go
 ```

@@ -28,18 +28,20 @@ func init() {
 func main() {
 	log.Println("heloo")
 	port := os.Getenv("PORT")
+	EthClientURL := os.Getenv("ETH_CLIENT_URL")
 	r := gin.Default()
 	r.Use(CORSMiddleware())
 	r.Use(gzip.Gzip(gzip.DefaultCompression))
 	r.Use(gin.Recovery())
 
-	client, err := ethclient.Dial("http://127.0.0.1:7545")
+	client, err := ethclient.Dial(EthClientURL)
 	if err != nil {
 		panic(err)
 	}
 	// conn, err := api.NewApi(common.HexToAddress("CONTRACT_ADDRESS"), client)
 	// conn, err := api.NewApi(common.HexToAddress("0x9Aa23BcdB51785e79EaFF318E7Db61B0befbd905"), client)
-	conn, err := api.NewApi(common.HexToAddress("0xF036e5fE5a1310D1f08196288eDBf3EC1Ff638A8"), client)
+	SmartContractAddress := os.Getenv("SMART_CONTRACT_ADDRESS")
+	conn, err := api.NewApi(common.HexToAddress(SmartContractAddress), client)
 	if err != nil {
 		panic(err)
 	}
