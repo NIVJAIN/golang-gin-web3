@@ -1,0 +1,25 @@
+{
+  "name": "golang-gin-web3",
+  "version": "1.0.0",
+  "description": "../truffle-upgradable-proxypatterns/node_modules/solc/solcjs --optimize --abi ./contracts/MySmartContract.sol -o build",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NIVJAIN/golang-gin-web3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NIVJAIN/golang-gin-web3/issues"
+  },
+  "homepage": "https://github.com/NIVJAIN/golang-gin-web3#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.5.0",
+    "fs-extra": "^10.0.1",
+    "moment": "^2.29.1"
+  }
+}

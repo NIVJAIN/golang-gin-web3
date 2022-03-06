@@ -1,0 +1,2 @@
+[{"constant":true,"inputs":[],"name":"Hello","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"pure","type":"function"},{"constant":true,"inputs":[{"name":"str","type":"string"}],"name":"Greet","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"pure","type":"function"}]solc --optimize --bin ./contracts/MySmartContract.sol -o build
+

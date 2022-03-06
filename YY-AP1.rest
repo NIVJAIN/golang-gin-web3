@@ -15,3 +15,11 @@ GET {{baseUrl}}/v1/blockchain/gethome2
 GET {{baseUrl}}/v1/blockchain/getemail
 ###
 GET {{baseUrl}}/v1/blockchain/greet/SripalJainFromSingapore
+
+###
+GET {{baseUrl}}/v1/blockchain/get/counter/count
+
+###
+GET {{baseUrl}}/v1/blockchain/getmessage
+###
+GET {{baseUrl}}/v1/blockchain/counter/increment

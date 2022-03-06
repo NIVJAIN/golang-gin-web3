@@ -37,7 +37,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	conn, err := api.NewApi(common.HexToAddress("0x9Aa23BcdB51785e79EaFF318E7Db61B0befbd905"), client)
+	// conn, err := api.NewApi(common.HexToAddress("CONTRACT_ADDRESS"), client)
+	// conn, err := api.NewApi(common.HexToAddress("0x9Aa23BcdB51785e79EaFF318E7Db61B0befbd905"), client)
+	conn, err := api.NewApi(common.HexToAddress("0xF036e5fE5a1310D1f08196288eDBf3EC1Ff638A8"), client)
 	if err != nil {
 		panic(err)
 	}
@@ -48,8 +50,7 @@ func main() {
 
 	//Init
 	userRouter.Routes(r)
-	blockchainRouter.Routes(conn, r)
-
+	blockchainRouter.Routes(conn, client, r)
 	// HTML rendering ...
 	r.LoadHTMLGlob("./public/html/*")
 	r.Static("/public", "./public")
