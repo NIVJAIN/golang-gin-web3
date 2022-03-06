@@ -19,8 +19,6 @@
     SMART_CONTRACT_ADDRESS="0xF036e5fE5a1310D1f08196288eDBf3EC1Ff638A8"
     CHAIN_ID=1337
 ```
-.env
-```
 
 ### How to Run the application
 ```
